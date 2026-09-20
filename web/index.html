@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gacp-studio · Git 提交面板</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">✱</span>
+      <div>
+        <h1>gacp-studio</h1>
+        <p class="tagline">Conventional Commits + Gitmoji · add → commit → push</p>
+      </div>
+    </div>
+    <div class="repo-bar">
+      <label for="repo-path">仓库路径</label>
+      <input id="repo-path" type="text" spellcheck="false" placeholder="C:\path\to\repo">
+      <button id="refresh" class="btn" type="button">刷新状态</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel composer">
+      <div class="panel-title">
+        <h2>提交信息</h2>
+        <span id="branch-badge" class="badge">—</span>
+      </div>
+
+      <div class="type-grid" id="type-grid"></div>
+
+      <div class="row">
+        <label class="field grow">
+          <span>scope（可选）</span>
+          <input id="scope" type="text" placeholder="api / ui / deps">
+        </label>
+        <label class="field">
+          <span>emoji</span>
+          <input id="emoji" type="text" maxlength="8">
+        </label>
+      </div>
+
+      <label class="field">
+        <span>主题 subject *</span>
+        <input id="subject" type="text" placeholder="例如：添加一键提交面板">
+      </label>
+
+      <label class="field">
+        <span>正文 body（可选，多行）</span>
+        <textarea id="body" rows="3" placeholder="补充说明变更动机或破坏性变更"></textarea>
+      </label>
+
+      <label class="check">
+        <input id="breaking" type="checkbox">
+        <span>包含破坏性变更 <code>BREAKING CHANGE</code></span>
+      </label>
+
+      <div class="preview">
+        <div class="preview-label">提交预览</div>
+        <pre id="preview"></pre>
+      </div>
+
+      <div class="actions">
+        <label class="check push-toggle">
+          <input id="push" type="checkbox" checked>
+          <span>提交后自动 <code>git push</code></span>
+        </label>
+        <button id="commit" class="btn btn-primary" type="button">提交并推送</button>
+      </div>
+    </section>
+
+    <section class="panel status">
+      <div class="panel-title">
+        <h2>工作区状态</h2>
+        <span id="dirty-badge" class="badge badge-muted">未加载</span>
+      </div>
+
+      <div class="status-grid" id="status-grid"></div>
+
+      <h3 class="list-heading">变更文件</h3>
+      <div id="changes" class="changes empty">加载中…</div>
+
+      <h3 class="list-heading">最近提交</h3>
+      <ul id="log" class="log empty">—</ul>
+    </section>
+  </main>
+
+  <section class="panel output-panel">
+    <div class="panel-title">
+      <h2>输出</h2>
+      <button id="clear-output" class="btn btn-sm" type="button">清空</button>
+    </div>
+    <pre id="output" class="output">就绪。选择仓库路径后点击“刷新状态”。</pre>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# runtime user state (contains your local repo path)
+state.json
+state.json.tmp
+
+# python
+__pycache__/
+*.pyc
+
+# virtualenv
+.venv/
+venv/
+
+# archives (do not commit the packaged zip)
+*.zip
+
+# OS junk
+.DS_Store
+Thumbs.db
