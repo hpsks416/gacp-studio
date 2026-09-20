@@ -94,7 +94,7 @@ python3 server.py         # macOS / Linux
 
 ## 许可证
 
-许可证待定。
+本项目采用 [MIT License](LICENSE)。
 
 ## 免责声明
 
